@@ -16,6 +16,8 @@ return [0, 1].
 let nums = [2,5,5,11]
 let target =10;
 
+
+//SOLUTION-1
 var twoSum = function(nums, target) {
     let goesTill = nums.length;
   for(let i = 0; i<=goesTill; i++){
@@ -29,3 +31,36 @@ var twoSum = function(nums, target) {
 };
 
 console.log(twoSum(nums,target))
+
+//SOLUTION-2
+const twoSum = function (arr, target)  {
+	let numObject = {};
+	for (let i = 0; i < arr.length; i++) {
+		let thisNum = arr[i];
+		numObject[thisNum] = i;
+
+	}
+
+	for (var i = 0; i < arr.length; i++) {
+		let diff = target - arr[i];
+		if (numObject.hasOwnProperty(diff) && numObject[diff] !== i) {
+			return [i, numObject[diff]];
+		}
+	}
+}
+
+
+
+//SOLUTION-3
+const twoSum = function(nums, target) {
+    const comp = {};
+    for(let i=0; i<nums.length; i++){
+        if(comp[nums[i] ]>=0){
+            return [ comp[nums[i] ] , i]
+        }
+        comp[target-nums[i]] = i
+    }
+};
+
+
+
