@@ -1,8 +1,8 @@
 
 Array.prototype.myReduce = function(callback, initial) {
-    let values = this;
+    let currentArray = this;
 
-    values.forEach((item, index) => {
+    currentArray.forEach((item, index) => {
         initial = initial !== undefined ? callback(initial, item, index) : item
     })
 
