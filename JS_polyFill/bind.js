@@ -3,7 +3,7 @@ Function.prototype.myBind = function(obj, ...arg1){
   const functionToBind = this;
 
   return function(...arg2){
-      return functionToBind.apply(obj, [...arg1, ...arg2])
+      functionToBind.apply(obj, [...arg1, ...arg2])
   }
 
 }
@@ -13,7 +13,7 @@ function greet(a, b){
 }
 
 let obj = {
-  name: "dk",
+  name: "dk ",
   age: 24
 }
 
@@ -22,7 +22,7 @@ let obj = {
 
 // let newGreet = greet.bind(obj,"hh");
 
-let newGreet = greet.myBind(obj,"Hello");
+let newGreet = greet.myBind(obj,"Hello ");
 
 
 console.log(newGreet("!"))
