@@ -13,7 +13,6 @@ var names = ["dk", "rao","dk","jsk"];
 Array.prototype.unique_ = Array.prototype.unique || function() {
     var arr = [];
     this.reduce(function (hash, num) {
-        console.log('hash, num: ', hash, num);
         if(typeof hash[num] === 'undefined') {
             hash[num] = 1;
             arr.push(num);
