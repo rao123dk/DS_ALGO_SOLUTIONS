@@ -11,33 +11,33 @@ Open brackets must be closed in the correct order.
  */
 
 
-var isValid = function(s) {
-    if (s === null || s.length <= 0) return true;
-    var cArr = s.split('');
-    console.log('cArr: ', cArr);
+// var isValid = function(s) {
+//     if (s === null || s.length <= 0) return true;
+//     var cArr = s.split('');
+//     console.log('cArr: ', cArr);
 
-    var stack = [];
+//     var stack = [];
 
-    for (var c of cArr) {
-        console.log(' c: ',  c);
-        if (c === '[') {
-            stack.push(']');
-        }
-        else if (c === '{') {
-            stack.push('}');
-        }
-        else if (c === '(') {
-            stack.push(')');
-        }
-        else if (stack.length === 0 || c !== stack.pop()) {
-            //console.log("uu",stack)
-            return false;
-        }
-        console.log("uu",stack)
-    }
-    if (stack.length === 0) return true;
-    return false;
-};
+//     for (var c of cArr) {
+//         console.log(' c: ',  c);
+//         if (c === '[') {
+//             stack.push(']');
+//         }
+//         else if (c === '{') {
+//             stack.push('}');
+//         }
+//         else if (c === '(') {
+//             stack.push(')');
+//         }
+//         else if (stack.length === 0 || c !== stack.pop()) {
+//             //console.log("uu",stack)
+//             return false;
+//         }
+//         console.log("uu",stack)
+//     }
+//     if (stack.length === 0) return true;
+//     return false;
+// };
 
 var isValid = function(s) {
 
@@ -58,6 +58,7 @@ var isValid = function(s) {
         let topElement;
         if(closeMap[curChar] !== undefined){
             topElement = (charStack.length===0) ? '#' : charStack.pop();
+            console.log('topElement: ', topElement);
             if(topElement !== closeMap[curChar])
                 return false;
         }else{
@@ -67,4 +68,6 @@ var isValid = function(s) {
     return charStack.length === 0;
 };
 
-console.log(isValid("()[]{}"));
+//console.log(isValid("()[]{}"));
+
+console.log(isValid("({[})"));
